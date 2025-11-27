@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pooma — Payment</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">POOMA</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="section-inner">
+      <h1>Checkout</h1>
+      <p class="muted">Fill your details to complete the purchase.</p>
+
+      <form class="form-card" action="thankyou.html" method="post" onsubmit="return validatePayment(this)">
+        <fieldset>
+          <legend>Shipping Details</legend>
+          <input name="fullname" type="text" placeholder="Full name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="phone" type="tel" placeholder="Phone number" required />
+          <input name="address" type="text" placeholder="Address line" required />
+          <input name="city" type="text" placeholder="City" required />
+          <input name="postal" type="text" placeholder="Postal code / ZIP" required />
+        </fieldset>
+
+        <fieldset>
+          <legend>Payment (Demo)</legend>
+          <select name="method">
+            <option>UPI</option>
+            <option>Debit / Credit Card</option>
+            <option>Net Banking</option>
+          </select>
+          <input name="card" type="text" placeholder="Card number (demo)" />
+          <input name="exp" type="text" placeholder="MM/YY" />
+          <input name="cvv" type="text" placeholder="CVV" />
+        </fieldset>
+
+        <div class="card-actions">
+          <button type="submit" class="btn">Pay Now</button>
+          <button type="button" class="btn ghost" onclick="location.href='products.html'">Continue Shopping</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="year4"></span> Pooma</div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('year4').textContent = new Date().getFullYear();
+  function validatePayment(form){
+    // very small demo validation
+    if(!form.fullname.value.trim()){ alert('Please enter name'); return false; }
+    if(!form.email.value.trim()){ alert('Please enter email'); return false; }
+    // In a real store: integrate a payment gateway. This is a static demo; form posts to thankyou.html
+    return true;
+  }
+</script>
+</body>
+</html>
