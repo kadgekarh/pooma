@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pooma — Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">POOMA</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn ghost" onclick="location.href='index.html'">Back</button>
+      <button class="btn" onclick="alert('Cart is empty (static demo)')">Cart</button>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="section-inner">
+      <h1>Shop — Collections</h1>
+      <p class="muted">Shoes • Apparels • Jackets • Bottoms • Caps</p>
+
+      <div class="filters">
+        <label>Category:
+          <select onchange="filterCategory(this.value)">
+            <option value="all">All</option>
+            <option value="shoes">Shoes</option>
+            <option value="apparel">Apparel</option>
+            <option value="jackets">Jackets</option>
+            <option value="bottoms">Bottoms</option>
+            <option value="caps">Caps</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="productGrid" class="grid grid-3 products-grid">
+        <!-- Product card example: change href to product-detail pages if you create individual ones -->
+        <article class="product-card" data-cat="shoes">
+          <img src="images/shoe-1.jpg" alt="Runner Pro">
+          <h3>Runner Pro</h3>
+          <p class="price">₹2,499</p>
+          <p class="muted small">Sizes: 6 - 12</p>
+          <div class="card-actions">
+            <a class="btn ghost small" href="product-detail.html">View</a>
+            <button class="btn small" onclick="location.href='product-detail.html'">Buy Now</button>
+            <button class="btn ghost small" onclick="addToCart('Runner Pro',2499)">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shoes">
+          <img src="images/shoe-2.jpg" alt="Court Classic">
+          <h3>Court Classic</h3>
+          <p class="price">₹3,199</p>
+          <p class="muted small">Sizes: 6 - 13</p>
+          <div class="card-actions">
+            <a class="btn ghost small" href="product-detail.html">View</a>
+            <button class="btn small" onclick="location.href='product-detail.html'">Buy Now</button>
+            <button class="btn ghost small" onclick="addToCart('Court Classic',3199)">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="apparel">
+          <img src="images/apparel-1.jpg" alt="Signature Tee">
+          <h3>Signature Tee</h3>
+          <p class="price">₹799</p>
+          <p class="muted small">Colors: Black / White / Grey</p>
+          <div class="card-actions">
+            <a class="btn ghost small" href="product-detail.html">View</a>
+            <button class="btn small" onclick="location.href='product-detail.html'">Buy Now</button>
+            <button class="btn ghost small" onclick="addToCart('Signature Tee',799)">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="jackets">
+          <img src="images/jacket-1.jpg" alt="Thermo Jacket">
+          <h3>Thermo Jacket</h3>
+          <p class="price">₹4,499</p>
+          <p class="muted small">Sizes: S - XL</p>
+          <div class="card-actions">
+            <a class="btn ghost small" href="product-detail.html">View</a>
+            <button class="btn small" onclick="location.href='product-detail.html'">Buy Now</button>
+            <button class="btn ghost small" onclick="addToCart('Thermo Jacket',4499)">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="bottoms">
+          <img src="images/bottoms-1.jpg" alt="Athleisure Pants">
+          <h3>Athleisure Pants</h3>
+          <p class="price">₹1,299</p>
+          <p class="muted small">Sizes: S - XXL</p>
+          <div class="card-actions">
+            <a class="btn ghost small" href="product-detail.html">View</a>
+            <button class="btn small" onclick="location.href='product-detail.html'">Buy Now</button>
+            <button class="btn ghost small" onclick="addToCart('Athleisure Pants',1299)">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="caps">
+          <img src="images/cap-1.jpg" alt="Pooma Cap">
+          <h3>Pooma Cap</h3>
+          <p class="price">₹499</p>
+          <p class="muted small">One size fits all</p>
+          <div class="card-actions">
+            <a class="btn ghost small" href="product-detail.html">View</a>
+            <button class="btn small" onclick="location.href='product-detail.html'">Buy Now</button>
+            <button class="btn ghost small" onclick="addToCart('Pooma Cap',499)">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="year2"></span> Pooma</div>
+      <div class="foot-links">
+        <a href="#">Returns</a> • <a href="#">Shipping</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('year2').textContent = new Date().getFullYear();
+  function addToCart(name, price){
+    alert(name + ' added to cart (₹' + price + ') — demo only');
+  }
+  function filterCategory(cat){
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(c => {
+      if(cat === 'all' || c.dataset.cat === cat) c.style.display = '';
+      else c.style.display = 'none';
+    });
+  }
+</script>
+</body>
+</html>
