@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pooma — Product</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">POOMA</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn ghost" onclick="location.href='products.html'">Back</button>
+      <button class="btn" onclick="alert('Cart is empty (static demo)')">Cart</button>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="section-inner product-detail">
+      <div class="pd-media">
+        <img src="images/shoe-1.jpg" alt="Product image">
+      </div>
+
+      <div class="pd-info">
+        <h1 id="pname">Runner Pro</h1>
+        <p class="muted">Category: Shoes</p>
+        <p class="price">₹2,499</p>
+
+        <form id="buyForm" action="payment.html" method="get">
+          <label>Size:
+            <select name="size" required>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </label>
+
+          <label>Color:
+            <select name="color">
+              <option>Black</option>
+              <option>White</option>
+              <option>Neon</option>
+            </select>
+          </label>
+
+          <label>Quantity:
+            <input type="number" name="qty" min="1" value="1">
+          </label>
+
+          <!-- pass product data to payment page (GET query) -->
+          <input type="hidden" name="product" value="Runner Pro">
+          <input type="hidden" name="price" value="2499">
+
+          <div class="card-actions">
+            <button type="submit" class="btn">Buy Now</button>
+            <button type="button" class="btn ghost" onclick="alert('Added to cart (demo)')">Add to Cart</button>
+          </div>
+        </form>
+
+        <section class="product-description">
+          <h3>Product Details</h3>
+          <p>Runner Pro features breathable knit, responsive foam, and multi-surface traction.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="year3"></span> Pooma</div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('year3').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
