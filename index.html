@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pooma — Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">POOMA</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html" style="display:none">About</a>
+      <a href="contact.html" style="display:none">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn ghost" onclick="location.href='products.html'">Shop</button>
+      <button class="btn" onclick="alert('Cart is empty (static demo)')">Cart</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Pooma — Move Bold</h1>
+        <p>Performance shoes, iconic apparel, and seasonal jackets — designed for motion, built for style.</p>
+        <div class="hero-cta">
+          <a class="btn large" href="products.html">Explore Collection</a>
+          <a class="btn ghost" href="#story">About the Brand</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="images/hero-shoe.jpg" alt="Pooma Shoes" />
+      </div>
+    </section>
+
+    <section id="story" class="about section">
+      <div class="section-inner">
+        <h2>About Pooma</h2>
+        <p>Pooma is a modern athletic-lifestyle brand creating shoes, apparel, and outerwear that blend function and fashion. We collaborate with designers and athletes to bring everyday performance to your wardrobe.</p>
+        <div class="grid grid-3">
+          <article class="card">
+            <img src="images/shoe-1.jpg" alt="Shoes">
+            <h3>Performance Shoes</h3>
+            <p>Lightweight midsoles, grippy outsoles and bold colorways.</p>
+          </article>
+          <article class="card">
+            <img src="images/jacket-1.jpg" alt="Jacket">
+            <h3>Winter Jackets</h3>
+            <p>Warm, breathable, and water resistant for chilly days.</p>
+          </article>
+          <article class="card">
+            <img src="images/apparel-1.jpg" alt="Apparel">
+            <h3>Everyday Apparel</h3>
+            <p>T-shirts, bottoms, caps — minimal design, maximum comfort.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="celeb section">
+      <div class="section-inner">
+        <h2>Seen On</h2>
+        <p>Celebrity looks and fan collabs — Pooma in the wild.</p>
+        <div class="grid grid-4">
+          <img src="images/celeb-1.jpg" alt="Celebrity wearing Pooma">
+          <img src="images/celeb-2.jpg" alt="Celebrity wearing Pooma">
+          <img src="images/celeb-3.jpg" alt="Celebrity wearing Pooma">
+          <img src="images/celeb-4.jpg" alt="Celebrity wearing Pooma">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Pooma</div>
+      <div class="foot-links">
+        <a href="#">Terms</a> • <a href="#">Privacy</a> • <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
